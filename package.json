@@ -1,7 +1,7 @@
 {
   "name": "iwanttoexperiencevr",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the IWantToExperience project. This is being made using React VR. There needs to be some styling done.",
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base src --inline --hot",
@@ -26,5 +26,13 @@
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slackermorris/IWantToExperienceVR.git"
+  },
+  "bugs": {
+    "url": "https://github.com/slackermorris/IWantToExperienceVR/issues"
+  },
+  "homepage": "https://github.com/slackermorris/IWantToExperienceVR#readme"
 }

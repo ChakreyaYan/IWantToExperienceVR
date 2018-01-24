@@ -7,19 +7,21 @@ export default class Layout extends React.Component {
 constructor(props) {
   super(props);
 
-  this.state = {x: 0, y: 0};
-  this.state = {name : "Working, Yes."};                   
+  this.state = {x: 0, y: 0, name: 'Gold'};
 }
 
 onMouseMove(e) {
-this.setState = {x : e.nativeEvent.offsetX, y : e.nativeEvent.offsetY};
+
+console.log('X: ' + this.state.x + ' Y: ' + this.state.y);
+this.setState({x : e.nativeEvent.offsetX, y : e.nativeEvent.offsetY});
 
 
 }
 
   render() {
 
-    const { x, y } = this.state;          
+    const { x, y } = this.state; 
+    console.log(this.state.x);         
                 
     return (
       <div>
@@ -32,9 +34,8 @@ this.setState = {x : e.nativeEvent.offsetX, y : e.nativeEvent.offsetY};
         width = {640}
         /> 
 
-        <h1> Why not! </h1>
 
-        
+    
       </div>
     );
   }
