@@ -2,7 +2,13 @@ import React from "react";
 import ReactPlayer from 'react-player';
 import ReactCursorPosition from 'react-cursor-position';
 
+
 export default class Layout extends React.Component {
+
+    const Header = styled('h1')`
+  background: #65a9d7;
+  font-size: 26px;
+`
 
 constructor(props) {
   super(props);
@@ -32,11 +38,10 @@ this.setState({x : e.nativeEvent.offsetX, y : e.nativeEvent.offsetY});
         controls = {true} 
         height = {320}
         width = {640}
-        /> 
+        />
 
-
-    
       </div>
+
     );
   }
 
