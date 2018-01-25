@@ -797,5 +797,18 @@ footer .footer-manu ul li a:hover {
   color: #000;
 }
 
+#appTwo {
+border: pink solid;
+display: block;
+float: right;
+text-align: center;
+}
+
+.submitButton {
+color: red;
+background-color: blue;
+margin-bottom: 50px;
+outline: pink solid;
+}
 
 
