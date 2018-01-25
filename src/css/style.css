@@ -799,8 +799,6 @@ footer .footer-manu ul li a:hover {
 
 #appTwo {
 border: pink solid;
-display: block;
-float: right;
 text-align: center;
 }
 
@@ -811,4 +809,10 @@ margin-bottom: 50px;
 outline: pink solid;
 }
 
+.hotspotInput {
+color: grey;
+opacity: 0.85;
+text-align: center;
+
+}
 

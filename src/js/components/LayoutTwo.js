@@ -36,6 +36,11 @@ onButtonClick(e) {
         	class = 'submitButton'
         	/>
         	<h1> Name A Hotspot </h1>
+        	<input 
+			value = "Hotspot Name"
+			class = "hotspotInput"
+        	/>
+
         	</div>
 			</div>
 
