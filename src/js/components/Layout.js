@@ -66,14 +66,6 @@ onDuration = (duration) => {
         <div class = "button">
         <Button value = 'Click me' clickHandler = {this.onButtonClick.bind(this)} />
         </div>
-      
-
-
-        
-
-
-
-    
       </div>
     );
   }
