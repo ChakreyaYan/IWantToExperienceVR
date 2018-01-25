@@ -10,6 +10,9 @@ export default class LayoutTwo extends React.Component {
 	}
 
 
+
+
+
 onButtonClick(e) {
   
   this.state.panels.push(this.state.x, this.state.y, this.state.currentTime);  
@@ -20,13 +23,18 @@ onButtonClick(e) {
 
 	render() {
 
+		
+
 		const { x, y, duration, currentTime } = this.state; 
 
 		return(
 			<div>
 			<h1> Submit A Hotspot </h1>
 			<div class = "button">
-        	<Button value = 'Click me' clickHandler = {this.onButtonClick.bind(this)} />
+        	<Button value = 'Submit A Hotspot' 
+        	clickHandler = {this.onButtonClick.bind(this)} 
+        	class = 'submitButton'
+        	/>
         	</div>
 			</div>
 

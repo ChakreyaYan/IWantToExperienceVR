@@ -800,8 +800,15 @@ footer .footer-manu ul li a:hover {
 #appTwo {
 border: pink solid;
 display: block;
-text-align: right;
 float: right;
+text-align: center;
+}
+
+.submitButton {
+color: red;
+background-color: blue;
+margin-bottom: 50px;
+outline: pink solid;
 }
 
 
