@@ -7,48 +7,55 @@ export default class Layout extends React.Component {
 constructor(props) {
   super(props);
 
-  this.state = {x: 0, y: 0, name: 'Gold', duration: 0, currentTime: 0};
+  this.state = {x: 0, y: 0, duration: 0, currentTime: 0};
 }
 
-onMouseMove(e) {
+onClick(e) {
 
-console.log('X: ' + this.state.x + ' Y: ' + this.state.y);
 this.setState({x : e.nativeEvent.offsetX, y : e.nativeEvent.offsetY});
 
 }
 
+
 onDuration = (duration) => {
     console.log('onDuration', duration)
     this.setState({ duration });
+}
+
+
+ onProgress = state => {
+    console.log('onProgress', state)
+    // We only want to update time slider if we are not currently seeking
+    if (!this.state.seeking) {
+      this.setState(state)
+    }
+    this.setState({currentTime : this.state.playedSeconds});
+    console.log(this.state.currentTime);
+
   }
 
-getCurrentTime = (seconds) => {
-                        
-this.setState({
-currentTime : seconds,               
-});
-}
+
 
   render() {
 
     const { x, y, duration, currentTime } = this.state; 
 
     
-    console.log('X: ' + this.state.x + ' Duration: ' + this.state.duration + ' Current Play Time: ' + this.currentTime);   
+    console.log('X: ' + this.state.x + ' Duration: ' + this.state.duration + ' Current Play Time: ' + this.state.currentTime);  
                 
     return (
       <div>
-        <h1> Current Coordinates: {x} {y} </h1>
-        <ReactPlayer onMouseMove = {this.onMouseMove.bind(this)}
-        ref = {'player'}
+        <h1> Current Coordinates: {x} {y} Time : {currentTime} </h1>
+        <ReactPlayer onClick = {this.onClick.bind(this)}
+        ref = "player"
         url = {'../static assets/Intro_Stephen.mp4'} 
-        onClick = {() => alert('X: ' + this.state.x)}
         onDuration = {this.onDuration}
-        onCurrentTime = {this.getCurrentTime}
+        onProgress = {this.onProgress}
         controls = {true} 
         height = {320}
         width = {640}
         /> 
+
 
 
     
