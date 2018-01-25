@@ -35,6 +35,7 @@ onButtonClick(e) {
         	clickHandler = {this.onButtonClick.bind(this)} 
         	class = 'submitButton'
         	/>
+        	<h1> Name A Hotspot </h1>
         	</div>
 			</div>
 
