@@ -1,6 +1,7 @@
 import React from "react";
 import ReactPlayer from 'react-player';
 import ReactCursorPosition from 'react-cursor-position';
+import Button from 'simple-react-button';
 
 export default class Layout extends React.Component {
 
@@ -8,12 +9,19 @@ constructor(props) {
   super(props);
 
   this.state = {x: 0, y: 0, duration: 0, currentTime: 0};
+  this.state = {panels : []};
 }
 
 onClick(e) {
 
 this.setState({x : e.nativeEvent.offsetX, y : e.nativeEvent.offsetY});
 
+}
+
+onButtonClick(e) {
+  
+  this.state.panels.push(this.state.x, this.state.y, this.state.currentTime);  
+  console.log(this.state.panels);
 }
 
 
@@ -34,7 +42,7 @@ onDuration = (duration) => {
 
   }
 
-
+  
 
   render() {
 
@@ -55,6 +63,13 @@ onDuration = (duration) => {
         height = {320}
         width = {640}
         /> 
+        <div class = "button">
+        <Button value = 'Click me' clickHandler = {this.onButtonClick.bind(this)} />
+        </div>
+      
+
+
+        
 
 
 
