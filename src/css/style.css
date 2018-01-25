@@ -797,10 +797,13 @@ footer .footer-manu ul li a:hover {
   color: #000;
 }
 
+<<<<<<< HEAD
 #appTwo {
 border: pink solid;
 text-align: center;
 }
+=======
+>>>>>>> ca3a4ccc77d24c66138dde406333a1c0b8f3cdc3
 
 .submitButton {
 color: red;
@@ -813,6 +816,60 @@ outline: pink solid;
 color: grey;
 opacity: 0.85;
 text-align: center;
+
+}
+
+
+/* video container */
+#app{
+  width:640px;
+  height:390px;
+  position:absolute;
+  overflow:hidden;
+  background:#000;
+  color:#ccc;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.8);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  margin: 50px auto 0;
+}
+#app:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.3);
+  z-index: 6;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+#appTwo{
+  width:300px;
+  height:390px;
+  position:inherit;
+  overflow:hidden;
+  background:#000;
+  color:#ccc;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.8);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  margin: 50px auto 0;
+}
+
+#appTwo:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.3);
+  z-index: 6;
+  border-radius: 6px;
+  pointer-events: none;
 
 }
 
