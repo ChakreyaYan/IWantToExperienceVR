@@ -2,111 +2,102 @@ import React from "react";
 import ReactPlayer from 'react-player';
 import ReactCursorPosition from 'react-cursor-position';
 import Button from 'simple-react-button';
-import PropTypes from 'react';
 
 export default class Layout extends React.Component {
 
-constructor(props) {
-  super(props);
+    constructor(props) {
+        super(props);
 
-  this.state = {x: 0, y: 0, duration: 0, currentTime: 0, fieldVal: ''};
-  this.state = {firstArray : [], secondArray : []};
-
-}
-
- componentWillReceiveProps(props) {
-    console.log('Will receive props')
-  }
-
-
-onClick(e) {
-
-this.setState({x : e.nativeEvent.offsetX, y : e.nativeEvent.offsetY});
-
-
-}
-
-onButtonClick(e) {
-  
-  this.state.firstArray.push(this.state.fieldVal, this.state.x, this.state.y, this.state.currentTime);  
-  this.state.secondArray.push(this.state.firstArray);
-  this.setState({firstArray: []});
-  console.log(this.state.firstArray);
-  console.log(this.state.secondArray);
-
-
-}
-
-
-onDuration = (duration) => {
-    console.log('onDuration', duration)
-    this.setState({ duration });
-}
-
-update = (e) => {
-console.log(e.target.value);
-this.setState({fieldVal : e.target.value});
-}
-
-
- onProgress = state => {
-    console.log('onProgress', state)
-    // We only want to update time slider if we are not currently seeking
-    if (!this.state.seeking) {
-      this.setState(state)
+        this.state = {x: 0, y: 0, duration: 0, currentTime: 0};
+        this.state = {panels : []};
     }
-    this.setState({currentTime : this.state.playedSeconds + 's'});
-    console.log(this.state.currentTime);
 
-  }
+    onClick(e) {
+        this.setState({x : e.nativeEvent.offsetX, y : e.nativeEvent.offsetY});
+    }
 
-  
+    saveHotspot(e) {
+        const array = {x: this.state.x, y: this.state.y, time: this.state.currentTime, name: "blank"}
+        this.state.panels.push(array);
 
-  render() {
+        //Refresh panel
+        var myNode = document.getElementById("testelement");
+        myNode.innerHTML = '';
+        var arrayLength = this.state.panels.length;
+        for (var i = 0; i < arrayLength; i++)
+        {
+            var node = document.createElement("LI");
+            var textnode = document.createTextNode("Hotspot " + (i + 1) + ":   X = " + this.state.panels[i].x + "   Y = " + this.state.panels[i].y + "   Time = " + this.state.panels[i].time + "   Name = " + this.state.panels[i].name);
+            node.appendChild(textnode);
+            document.getElementById("testelement").appendChild(node);
+        }
+    }
 
-    const { x, y, duration, currentTime, fieldVal } = this.state; 
-   
-    console.log('X: ' + this.state.x + ' Duration: ' + this.state.duration + ' Current Play Time: ' + this.state.currentTime);  
-                
-    return (
-      <div class = "layoutDiv">
-        <h1 className = "hotspotTitle"> Hotspot Title: {fieldVal} </h1>
-        <h1 className = "hotspotTitle"> Current Coordinates: X: {x} Y: {y} Time : {currentTime} </h1>
-        <ReactPlayer onClick = {this.onClick.bind(this)}
-        ref = "player"
-        url = {'../static assets/Intro_Stephen.mp4'} 
-        onDuration = {this.onDuration}
-        onProgress = {this.onProgress}
-        controls = {true} 
-        height = {320}
-        width = {640}
-        /> 
+    downloadJSON(e) {
+        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.state.panels));
+        var dlAnchorElem = document.getElementById('downloadAnchorElem');
+        dlAnchorElem.setAttribute("href",     dataStr     );
+        dlAnchorElem.setAttribute("download", "hotspots.json");
+        dlAnchorElem.click();
+    }
+
+    nameHotspot(e) {
+        var index = parseInt(document.getElementById("hotspotnumber").value);
+        var name = document.getElementById("hotspotname").value;
+        this.state.panels[index - 1].name = name;
+
+        //Refresh panel
+        var myNode = document.getElementById("testelement");
+        myNode.innerHTML = '';
+        var arrayLength = this.state.panels.length;
+        for (var i = 0; i < arrayLength; i++)
+        {
+            var node = document.createElement("LI");
+            var textnode = document.createTextNode("Hotspot " + (i + 1) + ":   X = " + this.state.panels[i].x + "   Y = " + this.state.panels[i].y + "   Time = " + this.state.panels[i].time + "   Name = " + this.state.panels[i].name);
+            node.appendChild(textnode);
+            document.getElementById("testelement").appendChild(node);
+        }
+    }
+
+    onDuration = (duration) => {
+        console.log('onDuration', duration)
+        this.setState({ duration });
+    }
 
 
-        <h3 className = "inputHeader"> Name a Hotspot </h3>
-        
-              <input 
-                class = "hotspotInput"
-                placeholder = "type here"
-                onChange = {this.update}
-                className = "inputField"
-              />
-              <br></br>
+    onProgress = state => {
+        console.log('onProgress', state)
+        // We only want to update time slider if we are not currently seeking
+        if (!this.state.seeking) {
+            this.setState(state)
+        }
+        this.setState({currentTime : this.state.playedSeconds});
+        console.log(this.state.currentTime);
+    }
 
-        <h3 className = "buttonHeader"> Submit A Hotspot </h3>
+    render() {
+        const { x, y, duration, currentTime } = this.state;
 
-              <Button value = 'Click me' clickHandler = {this.onButtonClick.bind(this)} className = "inputButton"/>
-        
-      </div>
-    );
-  }
+        return (
 
+            <div>
+                <h1> Current Coordinates hi test: {x} {y} Time : {currentTime} </h1>
+                <ReactPlayer onClick = {this.onClick.bind(this)}
+                             ref = "player"
+                             url = {'../static assets/Intro_Stephen.mp4'}
+                             onDuration = {this.onDuration}
+                             onProgress = {this.onProgress}
+                             controls = {true}
+                             height = {250}
+                             width = {640}
+                />
+                <div class = "button">
+                    <Button value = 'Save Hotspot' clickHandler = {this.saveHotspot.bind(this)} />
+                    <Button value = 'Download JSON' clickHandler = {this.downloadJSON.bind(this)} />
+                    <Button value = 'Name Hotspot' clickHandler = {this.nameHotspot.bind(this)} />
 
+                </div>
+            </div>
+        );
+    }
 }
-
-Layout.defaultProps = {
-  name: 'Jack',
-  newX: 24,
-  occupation: 'Goldsmith'
-};
-
