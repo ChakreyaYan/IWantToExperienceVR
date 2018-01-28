@@ -1,4 +1,6 @@
 # IWantToExperienceVR
+
+* TO LOAD THE PAGE RIGHT CLICK THE INDEX.HTML FILE AND CHOOLSE LOAD IN BROWSER.
 This is the IWantToExperience project. This is being made using React VR. There needs to be some styling done.
 
 To properly use this project you need to do the following:
