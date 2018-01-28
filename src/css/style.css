@@ -798,33 +798,26 @@ footer .footer-manu ul li a:hover {
 }
 
 <<<<<<< HEAD
-#appTwo {
-border: pink solid;
-text-align: center;
-}
+
 =======
 >>>>>>> ca3a4ccc77d24c66138dde406333a1c0b8f3cdc3
 
+
 .submitButton {
-color: red;
-background-color: blue;
-margin-bottom: 50px;
-outline: pink solid;
+
 }
 
 .hotspotInput {
-color: grey;
-opacity: 0.85;
-text-align: center;
+
+text-align: center; 
 
 }
-
 
 /* video container */
 #app{
   width:640px;
-  height:390px;
-  position:absolute;
+  height:600px;
+  position: absolute;
   overflow:hidden;
   background:#000;
   color:#ccc;
@@ -844,19 +837,24 @@ text-align: center;
   z-index: 6;
   border-radius: 6px;
   pointer-events: none;
+  
 }
+
+
 
 #appTwo{
   width:300px;
   height:390px;
-  position:inherit;
+  position: inherit;
   overflow:hidden;
   background:#000;
-  color:#ccc;
   border-radius: 6px;
   border: 1px solid rgba(0,0,0,0.8);
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
   margin: 50px auto 0;
+  margin-left: 100px;
+  text-align: center;
+  outline: pink solid;
 }
 
 #appTwo:before {
@@ -872,4 +870,46 @@ text-align: center;
   pointer-events: none;
 
 }
+
+/* ANY CHANGES TO SUBMIT BUTTON NEED TO BE COMPILED HERE. THE SAME RULE APPLIES FOR HOTSPOT INPUT FIELD. */
+.submitButton {
+color: red
+}
+
+
+.layoutDiv {
+font-size: 12px;           
+}
+
+
+.inputField {
+color: black;  
+padding: 0;
+margin-top: 5px;
+margin-left: 250px;
+text-align: center; 
+
+}
+
+.inputButton {
+margin-left: 285px;  
+color: black;                
+}
+
+.inputHeader, .buttonHeader {
+font-size: 15px;
+font-family: Arial; 
+text-align: center; 
+font-style: bold;
+font-weight: bold;
+color: white;
+}
+
+.hotspotTitle {
+font-family: Arial; 
+font-weight: bold;
+color: white;
+font-size: 25px;              
+}
+
 
