@@ -16,7 +16,7 @@ Make these statements within the command terminal. Navigate to your local reposi
 * $ npm init
 * $ npm install -S webpack
 * $ npm install -g webpack
-* $ npm install webpack-dev-server
+* $ npm install webpack-dev-server -- important to do if it is not working.
 * $ webpack
 * $ webpack --watch // this is the prompt so that the webpack wathes the files. 
 
