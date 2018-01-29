@@ -122,6 +122,10 @@ export default class Layout extends React.Component {
                     <h2>name</h2>
                     <input type="text" name="Name" id = 'hotspotname' ></input>
                 </div>
+                <nav id = 'hotspotholder'>
+                    <ul id = 'testelement'>
+                    </ul>
+                </nav>
             </div>
         );
     }
