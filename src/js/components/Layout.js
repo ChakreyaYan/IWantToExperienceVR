@@ -17,8 +17,9 @@ export default class Layout extends React.Component {
     }
 
     saveHotspot(e) {
-        const array = {x: this.state.x, y: this.state.y, time: this.state.currentTime, name: "blank"}
-        this.state.panels.push(array);
+        const newarray = {"video1":{"video": "Intro_Stephen.mp4", "is_stereo": true, "hotspots":{"video1":{"pitch": (180 - this.state.x), "yaw": (90 - this.state.y), "radius": 0.05, "distance": 1}}}}
+        const array = {x: (180 - this.state.x), y: (90 - this.state.y), time: this.state.currentTime, name: "blank"}
+        this.state.panels.push(newarray);
 
         //Refresh panel
         var myNode = document.getElementById("testelement");
@@ -27,7 +28,8 @@ export default class Layout extends React.Component {
         for (var i = 0; i < arrayLength; i++)
         {
             var node = document.createElement("LI");
-            var textnode = document.createTextNode("Hotspot " + (i + 1) + ":   X = " + this.state.panels[i].x + "   Y = " + this.state.panels[i].y + "   Time = " + this.state.panels[i].time + "   Name = " + this.state.panels[i].name);
+            //var textnode = document.createTextNode("Hotspot " + (i + 1) + ":   X = " + this.state.panels[i].x + "   Y = " + this.state.panels[i].y + "   Time = " + this.state.panels[i].time + "   Name = " + this.state.panels[i].name);
+            var textnode = document.createTextNode("tits");
             node.appendChild(textnode);
             document.getElementById("testelement").appendChild(node);
         }
@@ -39,6 +41,8 @@ export default class Layout extends React.Component {
         dlAnchorElem.setAttribute("href",     dataStr     );
         dlAnchorElem.setAttribute("download", "hotspots.json");
         dlAnchorElem.click();
+
+        localStorage.setItem("key", dataStr);
     }
 
     nameHotspot(e) {
@@ -87,9 +91,8 @@ export default class Layout extends React.Component {
                              url = {'../static assets/Intro_Stephen.mp4'}
                              onDuration = {this.onDuration}
                              onProgress = {this.onProgress}
-                             controls = {true}
-                             height = {250}
-                             width = {640}
+                             height = {180}
+                             width = {360}
                 />
                 <div class = "button">
                     <Button value = 'Save Hotspot' clickHandler = {this.saveHotspot.bind(this)} />
